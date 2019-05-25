@@ -1,4 +1,4 @@
-package piece;
+package chess.piece;
 
 /**
  * An enum representing the color of the chess piece.

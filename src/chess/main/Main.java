@@ -1,4 +1,4 @@
-package main;
+package chess.main;
 
 /**
  * A chess game with both single player and multiplayer. All moves which can be

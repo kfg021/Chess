@@ -1,4 +1,4 @@
-package rendering;
+package chess.rendering;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-import board.ChessBoard;
-import board.Move;
-import board.Square;
-import input.Input;
-import piece.ChessPiece;
+import chess.board.ChessBoard;
+import chess.board.Move;
+import chess.board.Square;
+import chess.input.Input;
+import chess.piece.ChessPiece;
 
 /**
  * A class which extends JPanel and handles output to the screen.

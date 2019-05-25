@@ -1,4 +1,4 @@
-package board;
+package chess.board;
 
 /**
  * An immutable class which represents the coordinates of a square on a chess

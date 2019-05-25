@@ -1,6 +1,6 @@
-package board;
+package chess.board;
 
-import piece.ChessPiece;
+import chess.piece.ChessPiece;
 
 /**
  * A class which represents a chess piece's move.

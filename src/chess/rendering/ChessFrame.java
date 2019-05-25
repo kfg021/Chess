@@ -1,4 +1,4 @@
-package rendering;
+package chess.rendering;
 
 import javax.swing.JFrame;
 

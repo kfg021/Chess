@@ -1,15 +1,18 @@
-package player;
+package chess.player;
 
-import board.BoardAnalyzer;
-import board.ChessBoard;
-import board.Move;
-import piece.Bishop;
-import piece.ChessPiece;
-import piece.Knight;
-import piece.Pawn;
-import piece.PieceColor;
-import piece.Queen;
-import piece.Rook;
+import java.util.ArrayList;
+
+import chess.board.BoardAnalyzer;
+import chess.board.ChessBoard;
+import chess.board.Move;
+import chess.board.Square;
+import chess.piece.Bishop;
+import chess.piece.ChessPiece;
+import chess.piece.Knight;
+import chess.piece.Pawn;
+import chess.piece.PieceColor;
+import chess.piece.Queen;
+import chess.piece.Rook;
 
 /**
  * Represents a Chess AI which utilizes the Minimax algorithm to choose moves.
@@ -20,10 +23,11 @@ import piece.Rook;
 public class Minimax extends Player {
 
 	private static final int DEPTH = 3;
-	private static final int HARD_LIMIT = -2;
-	private static final int MAX_MS = 30000;
+	private static final int HARD_LIMIT = -40;
+	private static final int MAX_MS = 100000;
 
 	private long start;
+	private int maxDepth;
 	private Move bestMove;
 
 	/**
@@ -43,12 +47,12 @@ public class Minimax extends Player {
 		start = System.currentTimeMillis();
 		float best = minimax(getChessBoard(), getPieceColor(), DEPTH, Integer.MIN_VALUE, Integer.MAX_VALUE, false);
 		float secs = (System.currentTimeMillis() - start) / 1000f;
-		System.out.println("Move score: " + best + " (Time elapsed: " + secs + "s)");
+		System.out.println("Move score: " + best + " (Max Depth: " + maxDepth + ", Time elapsed: " + secs + "s)");
 		return bestMove;
 	}
 
 	/**
-	 * A recursive method which implements the minimax algorithm and alpha-beta
+	 * A recursive method which implements the minimax algorithm, alpha-beta
 	 * pruning to choose a move.
 	 * 
 	 * @param cb    the chess board on which the game is taking place
@@ -62,9 +66,9 @@ public class Minimax extends Player {
 	 * @see https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/
 	 */
 	private float minimax(ChessBoard cb, PieceColor pc, int depth, float alpha, float beta, boolean overSearch) {
-
 		BoardAnalyzer ba = BoardAnalyzer.getInstance();
 		if (depth == HARD_LIMIT || (depth <= 0 && !overSearch) || System.currentTimeMillis() - start > MAX_MS || ba.noMovesAvalible(cb, pc)) {
+			maxDepth = Math.max(DEPTH - depth, maxDepth);
 			return getScore(cb);
 		}
 
@@ -79,8 +83,8 @@ public class Minimax extends Player {
 				ChessBoard sim = new ChessBoard(cb);
 				m.execute(sim);
 
-				boolean quinescence = !cb.isEmpty(m.getTo()) || ba.isInCheck(cb, pc);
-				float score = minimax(sim, pc.flip(), depth - 1, alpha, beta, quinescence);
+				boolean quiescence = !cb.isEmpty(m.getTo()) || ba.isInCheck(cb, pc);
+				float score = minimax(sim, pc.flip(), depth - 1, alpha, beta, quiescence);
 
 				if (pc == PieceColor.WHITE) {
 					if (score > best) {
@@ -132,12 +136,20 @@ public class Minimax extends Player {
 			return 0;
 		}
 
+		ArrayList<ChessPiece> pcs = cb.getAllPieces();
+		
 		int material = 0;
-		int mobility = 0;
-		for (ChessPiece cp : cb.getAllPieces()) {
+		//int mobility = 0;
+		float pcY = 0;
+		int tot = pcs.size();
+		
+		for (ChessPiece cp : pcs) {
 			int color = (cp.getPieceColor() == PieceColor.WHITE) ? 1 : -1;
 
-			mobility += color * cp.getValidMoves(cb).size();
+			//mobility += color * cp.getValidMoves(cb).size();
+			
+			Square loc = cb.getSquare(cp);
+			pcY += loc.getY();
 
 			if (cp instanceof Pawn) {
 				material += color * 1;
@@ -152,8 +164,10 @@ public class Minimax extends Player {
 				material += color * 9;
 			}
 		}
+		
+		float pos = (pcY / tot - 3.5f);
 
-		return material + 0.1f * mobility;
+		return material + /*0.1f * mobility*/ + 4 * pos;
 	}
 
 	@Override

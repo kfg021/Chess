@@ -1,27 +1,27 @@
-package main;
+package chess.main;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-import board.BoardAnalyzer;
-import board.ChessBoard;
-import board.Move;
-import board.Square;
-import input.Input;
-import piece.Bishop;
-import piece.ChessPiece;
-import piece.King;
-import piece.Knight;
-import piece.Pawn;
-import piece.PieceColor;
-import piece.Queen;
-import piece.Rook;
-import player.DumbChessPlayer;
-import player.Human;
-import player.Minimax;
-import player.Player;
-import rendering.ChessFrame;
-import rendering.ChessPanel;
+import chess.board.BoardAnalyzer;
+import chess.board.ChessBoard;
+import chess.board.Move;
+import chess.board.Square;
+import chess.input.Input;
+import chess.piece.Bishop;
+import chess.piece.ChessPiece;
+import chess.piece.King;
+import chess.piece.Knight;
+import chess.piece.Pawn;
+import chess.piece.PieceColor;
+import chess.piece.Queen;
+import chess.piece.Rook;
+import chess.player.DumbChessPlayer;
+import chess.player.Human;
+import chess.player.Minimax;
+import chess.player.Player;
+import chess.rendering.ChessFrame;
+import chess.rendering.ChessPanel;
 
 /**
  * A class which handles the game logic of chess.

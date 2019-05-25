@@ -1,14 +1,14 @@
-package player;
+package chess.player;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import board.ChessBoard;
-import board.Move;
-import board.Square;
-import piece.ChessPiece;
-import piece.PieceColor;
-import piece.Queen;
+import chess.board.ChessBoard;
+import chess.board.Move;
+import chess.board.Square;
+import chess.piece.ChessPiece;
+import chess.piece.PieceColor;
+import chess.piece.Queen;
 
 /**
  * A bare-bones chess AI which makes random (but valid) moves.

@@ -1,4 +1,4 @@
-package input;
+package chess.input;
 
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -7,12 +7,12 @@ import java.awt.event.MouseEvent;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-import piece.Bishop;
-import piece.ChessPiece;
-import piece.Knight;
-import piece.PieceColor;
-import piece.Queen;
-import piece.Rook;
+import chess.piece.Bishop;
+import chess.piece.ChessPiece;
+import chess.piece.Knight;
+import chess.piece.PieceColor;
+import chess.piece.Queen;
+import chess.piece.Rook;
 
 /**
  * A class which handles the player's mouse input.

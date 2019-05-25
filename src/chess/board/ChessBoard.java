@@ -1,10 +1,10 @@
-package board;
+package chess.board;
 
 import java.util.ArrayList;
 
-import piece.ChessPiece;
-import piece.King;
-import piece.PieceColor;
+import chess.piece.ChessPiece;
+import chess.piece.King;
+import chess.piece.PieceColor;
 
 /**
  * A class which represents a chess board.

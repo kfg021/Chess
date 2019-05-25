@@ -1,12 +1,12 @@
-package piece;
+package chess.piece;
 
 import java.util.ArrayList;
 
-import board.BoardAnalyzer;
-import board.ChessBoard;
-import board.Move;
-import board.Square;
-import rendering.Icon;
+import chess.board.BoardAnalyzer;
+import chess.board.ChessBoard;
+import chess.board.Move;
+import chess.board.Square;
+import chess.rendering.Icon;
 
 /**
  * A class which represents a king.

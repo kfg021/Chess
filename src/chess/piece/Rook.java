@@ -1,10 +1,10 @@
-package piece;
+package chess.piece;
 
 import java.util.ArrayList;
 
-import board.ChessBoard;
-import board.Move;
-import rendering.Icon;
+import chess.board.ChessBoard;
+import chess.board.Move;
+import chess.rendering.Icon;
 
 /**
  * A class which represents a rook.

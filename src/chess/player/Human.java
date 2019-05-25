@@ -1,14 +1,14 @@
-package player;
+package chess.player;
 
 import java.util.ArrayList;
 
-import board.ChessBoard;
-import board.Move;
-import board.Square;
-import input.Input;
-import piece.ChessPiece;
-import piece.PieceColor;
-import rendering.ChessPanel;
+import chess.board.ChessBoard;
+import chess.board.Move;
+import chess.board.Square;
+import chess.input.Input;
+import chess.piece.ChessPiece;
+import chess.piece.PieceColor;
+import chess.rendering.ChessPanel;
 
 /**
  * A player controlled my manual input.

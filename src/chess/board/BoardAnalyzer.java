@@ -1,9 +1,9 @@
-package board;
+package chess.board;
 
 import java.util.ArrayList;
 
-import piece.ChessPiece;
-import piece.PieceColor;
+import chess.piece.ChessPiece;
+import chess.piece.PieceColor;
 
 /**
  * A class capable of analyzing the features of a chess board. Since the class

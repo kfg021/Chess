@@ -1,9 +1,9 @@
-package player;
+package chess.player;
 
-import board.ChessBoard;
-import board.Move;
-import piece.ChessPiece;
-import piece.PieceColor;
+import chess.board.ChessBoard;
+import chess.board.Move;
+import chess.piece.ChessPiece;
+import chess.piece.PieceColor;
 
 /**
  * An abstract class which represents a chess player.
